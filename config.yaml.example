@@ -1,0 +1,22 @@
+global:
+  dns_server: "8.8.8.8"                # Primary DNS server
+  secondary_dns_server: "8.8.4.4"      # Optional secondary DNS server
+  default_interval: 5m                 # Default check interval if not specified per check
+  log_dir: "logs"                      # Directory for storing check history
+  port: "8080"                         # Web interface port (optional, defaults to 8080)
+
+checks:
+  - domain: example.com
+    type: NS                          # Record type (A, CNAME, NS, TXT, MX)
+    expected: ns1.example.com         # Expected value in the DNS record
+    interval: 1h                      # Check interval (overrides default_interval)
+
+  - domain: example.org
+    type: A
+    expected: 93.184.216.34
+    interval: 5m
+
+  - domain: example.net
+    type: MX
+    expected: mail.example.net
+    # Uses default_interval since interval is not specified%     
