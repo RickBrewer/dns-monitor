@@ -1,0 +1,14 @@
+# Binaries
+dns-monitor
+*.exe
+
+# Log directory
+logs/
+
+# IDE files
+.idea/
+.vscode/
+
+# Go specific
+*.test
+*.out
